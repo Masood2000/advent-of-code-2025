@@ -40,10 +40,8 @@ int main() {
     for (auto it: keys)
     {
 
-
         if (it.first == "L") dialPos = (dialPos - it.second) % 100;
         else dialPos = (dialPos + it.second) % 100;
-
 
         if (dialPos == 0 ) countZeros++;
     }
