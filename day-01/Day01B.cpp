@@ -40,32 +40,17 @@ int main() {
     for (auto it: keys)
     {
 
-        int inc ;
+        int dir =  (it.first == "L")?-1:1;
 
-        if (it.first == "L") inc = -1;
-        else inc = 1;
+        for (int i=0;i<it.second;i++)
+        {
+            dialPos = (dialPos + dir)%100;
 
-        int fd = it.second/100;
-
-        countZeros += fd;
-
-        int start = dialPos;
-
-        dialPos += inc * (it.second%100);
-
-
-
-        if(start !=0 && (dialPos <0 || dialPos>100)){
-            countZeros++;
+            if (dialPos == 0) countZeros++;
         }
 
-        dialPos %= 100;
-
-        if (dialPos < 0) dialPos += 100;
 
 
-
-        if (start!= 0 && dialPos == 0 ) countZeros++;
     }
 
 
