@@ -31,7 +31,6 @@ int main() {
     }
 
 
-
     int countZeros = 0;
 
     int dialPos = 50;
@@ -48,7 +47,6 @@ int main() {
 
             if (dialPos == 0) countZeros++;
         }
-
 
 
     }
