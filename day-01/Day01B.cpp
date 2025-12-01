@@ -40,12 +40,32 @@ int main() {
     for (auto it: keys)
     {
 
+        int inc ;
 
-        if (it.first == "L") dialPos = (dialPos - it.second) % 100;
-        else dialPos = (dialPos + it.second) % 100;
+        if (it.first == "L") inc = -1;
+        else inc = 1;
+
+        int fd = it.second/100;
+
+        countZeros += fd;
+
+        int start = dialPos;
+
+        dialPos += inc * (it.second%100);
 
 
-        if (dialPos == 0 ) countZeros++;
+
+        if(start !=0 && (dialPos <0 || dialPos>100)){
+            countZeros++;
+        }
+
+        dialPos %= 100;
+
+        if (dialPos < 0) dialPos += 100;
+
+
+
+        if (start!= 0 && dialPos == 0 ) countZeros++;
     }
 
 
