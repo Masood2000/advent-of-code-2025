@@ -48,8 +48,9 @@ int main() {
             if (dialPos == 0) countZeros++;
         }
 
-
     }
+
+
 
 
     cout<<countZeros;

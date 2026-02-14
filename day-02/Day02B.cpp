@@ -7,19 +7,21 @@
 
 using namespace std;
 
+
 bool invalid(long long x) {
+
     string s = to_string(x);
     int n = s.size();
 
-    int limit = 3;
+    int limit = n+1;
 
     for (int k = 2; k < limit; k++) {
         if (n % k == 0) {
             bool inVal = true;
-            int sz = n / k;
+            int size = n / k;
 
-            for (int i = 0; i < n; i += sz) {
-                if (s.substr(i, sz) != s.substr(0, sz)) {
+            for (int i = 0; i < n; i += size) {
+                if (s.substr(i, size) != s.substr(0, size)) {
                     inVal = false;
                     break;
                 }
@@ -35,6 +37,7 @@ bool invalid(long long x) {
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+
 
     string input, temp;
 
@@ -53,15 +56,17 @@ int main() {
 
     while (getline(ss, r, ',')) {
         size_t dash = r.find('-');
+
+
         long long first = stoll(r.substr(0, dash));
         long long last  = stoll(r.substr(dash + 1));
 
         for (long long x = first; x <= last; x++) {
-            if (invalid(x)) ans += x;
 
+            if (invalid(x))  ans += x;
         }
     }
 
-    cout << ans <<  "\n";
+    cout <<ans << "\n";
     return 0;
 }
